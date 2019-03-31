@@ -23,6 +23,8 @@ renderButtons();
         var hero = $("#button-input").val().trim();
         superHeroes.push(hero);
         renderButtons();
+        // Clear the form field
+        $("form").trigger("reset");
     })
 
 });
