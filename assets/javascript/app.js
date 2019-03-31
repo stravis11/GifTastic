@@ -1,7 +1,8 @@
 
 $(document).ready(function () {
     // Initial array of super heroes
-    var superHeroes = ["Avengers", "X-Men", "Justice League", "Iron Man", "Spiderman", "Superman", "Batman", "Incredible Hulk", "Aquaman"];
+    var superHeroes = ["X-Men", "Avengers","Justice League", "Iron Man", "Spiderman", "Superman", "Batman", "Incredible Hulk", "Aquaman"];
+    
     // Calling the renderButtons function at least once to display the initial list of super heroes
     renderButtons();
 
@@ -46,12 +47,12 @@ $(document).ready(function () {
             method: "GET"
         })
             .then(function (response) {
-                // Storing an array of results in the results variable
+                // Storing an array of the response data
                 var results = response.data;
                 // Looping over every result item
                 for (var i = 0; i < results.length; i++) {
                     // Only taking action if the photo has an appropriate rating
-                    if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
+                    if (results[i].rating !== "r") {
                         var gifDiv = $("<div>");
                         // Storing the result item's rating
                         var rating = results[i].rating;
@@ -62,10 +63,11 @@ $(document).ready(function () {
                         // Giving the image tag an src attribute of a proprty pulled off the
                         // result item
                         heroImage.attr("src", results[i].images.fixed_height.url);
-                        // Appending the paragraph and personImage we created to the "gifDiv" div we created
+                        // Appending the paragraph and heroImage we created to the "gifDiv" div
                         gifDiv.append(p);
                         gifDiv.append(heroImage);
                         // Prepending the gifDiv to the "#images" div in the HTML
+                        $("#images").prepend(gifDiv);
                         $("#images").prepend(heroImage);
                     }
                 }
