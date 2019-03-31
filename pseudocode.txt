@@ -1,0 +1,9 @@
+
+1. Initial setup*
+2. Layout design*
+3. Pick category: Super Heroes
+4. Create initial buttons
+    Avengers,X-Men,Justice League,Spiderman,Superman,Batman,Wonder Woman,Incredible Hulk,Aquaman
+5. Populate page with button results
+6. Create form submit button for adding buttons
+7. Populate page with buttons results from additional buttons
