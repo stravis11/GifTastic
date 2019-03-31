@@ -2,7 +2,7 @@
 $(document).ready(function () {
     // Initial array of super heroes
     var superHeroes = ["Avengers", "X-Men", "Justice League", "Iron Man", "Spiderman", "Superman", "Batman", "Incredible Hulk", "Aquaman"];
-    // Calling the renderButtons function at least once to display the initial list of movies
+    // Calling the renderButtons function at least once to display the initial list of super heroes
     renderButtons();
 
     // Function for displaying buttons
@@ -11,43 +11,64 @@ $(document).ready(function () {
 
         for (var i = 0; i < superHeroes.length; i++) {
             var hero = $("<button>");
-            hero.addClass("hero");
             $(hero).attr('id', 'hero-button');
+            hero.addClass("hero");
             $(hero).attr('type', 'submit');
             hero.attr("data-name", superHeroes[i]);
             hero.text(superHeroes[i]);
             $("#buttons-view").append(hero);
         }
     }
+
     // Function to add hero buttons
     $("#add-superhero").on("click", function (event) {
+        // event.preventDefault() prevents the form from trying to submit itself.
         event.preventDefault();
+        // This line will grab the text from the input box
         var hero = $("#button-input").val().trim();
+        // The super hero from the textbox is then added to our array
         superHeroes.push(hero);
+        //Call renderButtons function
         renderButtons();
         // Clear the form field
         $("form").trigger("reset");
     })
 
-    //This function queries GIPHY for super hero button selected
-    $(".hero").on("click", function (event) {
-        console.log('CLICK');
+    //Function queries GIPHY for super hero button selected
+    $("button").on("click", function (event) {
         event.preventDefault();
         // Storing our giphy API URL
-        var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=xpKl0hsLaTcPGpvdzolHfqbGD2PgBpqW&tag=hero";
-
+        var heroName = $(this).attr("data-name");
+        var queryUrl = "https://api.giphy.com/v1/gifs/search?q=" + heroName + "&api_key=xpKl0hsLaTcPGpvdzolHfqbGD2PgBpqW&limit=1";
         // Perfoming an AJAX GET request to our queryURL
         $.ajax({
-            url: queryURL,
+            url: queryUrl,
             method: "GET"
         })
             .then(function (response) {
-                console.log(response);
-                var imageUrl = response.data.image_original_url;
-                var heroImage = $("<img>");
-                heroImage.attr("src", imageUrl);
-                heroImage.attr("alt", "hero image");
-                $("#images").prepend(heroImage);
+                // Storing an array of results in the results variable
+                var results = response.data;
+                // Looping over every result item
+                for (var i = 0; i < results.length; i++) {
+                    // Only taking action if the photo has an appropriate rating
+                    if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
+                        var gifDiv = $("<div>");
+                        // Storing the result item's rating
+                        var rating = results[i].rating;
+                        // Creating a paragraph tag with the result item's rating
+                        var p = $("<p>").text("Rating: " + rating);
+                        // Creating an image tag
+                        var heroImage = $("<img>");
+                        // Giving the image tag an src attribute of a proprty pulled off the
+                        // result item
+                        heroImage.attr("src", results[i].images.fixed_height.url);
+                        // Appending the paragraph and personImage we created to the "gifDiv" div we created
+                        gifDiv.append(p);
+                        gifDiv.append(heroImage);
+                        // Prepending the gifDiv to the "#images" div in the HTML
+                        $("#images").prepend(heroImage);
+                    }
+                }
             });
     });
 });
