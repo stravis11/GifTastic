@@ -79,7 +79,7 @@ $(document).ready(function () {
                         // Giving the image tag a src attribute for still image
                         heroImage.attr("src", results[i].images.fixed_height_still.url);
                         // Giving the image tag a gif class
-                        heroImage.attr("class", "gif");
+                        heroImage.attr("class", "gif responsive-img");
                         // Giving the image tag a data-still attribute for the still image URL
                         heroImage.attr("data-still", results[i].images.fixed_height_still.url);
                         // Giving the image tag a data-animate atribute for animated GIF

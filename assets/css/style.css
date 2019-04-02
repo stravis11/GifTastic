@@ -1,23 +1,41 @@
 
 
-    
-  
+   @font-face {
+	font-family: 'Adventure';
+	src: url(../fonts/Adventure.otf);
+} 
+
+nav {
+    font-family: "Adventure", sans-serif;
+    font-size: 100;
+}
+
   .flex {
     min-height: 100vh;
     display: flex;
     flex-wrap: wrap;
  }
-
+ 
  #images {
+     padding: 10px;
+ }
+ /* .row {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     width: 25%;
-    padding: 10px; 
-}
+    padding: 4px 4px; 
+} */
 
-.p {
-    text-align: center;
-}
+/* .column {
+    flex: 25%;
+    max-width: 25%;
+    padding: 0 4px;
+  }
+
+  .column img {
+    margin-top: 8px;
+    vertical-align: middle;
+  } */
     
  
