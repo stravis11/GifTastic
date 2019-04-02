@@ -1,0 +1,23 @@
+
+
+    
+  
+  .flex {
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+ }
+
+ #images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 25%;
+    padding: 10px; 
+}
+
+.p {
+    text-align: center;
+}
+    
+ 

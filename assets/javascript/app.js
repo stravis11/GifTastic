@@ -1,8 +1,7 @@
 
 $(document).ready(function () {
-    //Global variables
 
-    // Initial array of super heroes
+    // Array of super heroes
     var superHeroes = ["X-Men", "Avengers", "Justice League", "Iron Man", "Spiderman", "Superman", "Batman", "Incredible Hulk", "Aquaman"];
 
     // Calling the renderButtons function at least once to display the initial list of super heroes
@@ -18,7 +17,7 @@ $(document).ready(function () {
             var hero = $("<button>");
             // Add attributes and classes
             $(hero).attr("id", "hero-button");
-            hero.addClass("hero");
+            hero.addClass("hero collection-item waves-effect green btn-medium");
             $(hero).attr("type", "submit");
             hero.attr("data-name", superHeroes[i]);
             hero.text(superHeroes[i]);
@@ -28,7 +27,7 @@ $(document).ready(function () {
     }
 
     // On click Function to add hero buttons
-    $("#add-superhero").click(function() {
+    $("#add-superhero").click(function () {
         // Grabs valus from the text box
         var txtBox = $("#button-input").val();
         // event.preventDefault() prevents the form from trying to submit itself.
@@ -54,7 +53,7 @@ $(document).ready(function () {
 
     // On click Function queries GIPHY for super hero button selected
     // $("button#hero-button").click(function() {
-    $(document).on('click', 'button#hero-button', function(){
+    $(document).on('click', 'button#hero-button', function () {
         // Storing our giphy API URL
         var heroName = $(this).attr("data-name");
         var queryUrl = "https://api.giphy.com/v1/gifs/search?q=" + heroName + "&api_key=xpKl0hsLaTcPGpvdzolHfqbGD2PgBpqW&random&limit=10";
@@ -74,7 +73,7 @@ $(document).ready(function () {
                         // Storing the result item's rating
                         var rating = results[i].rating;
                         // Creating a paragraph tag with the result item's rating
-                        var p = $("<p>").text("Rating: " + rating);
+                        var p = $("<p>").text("Rating: " + rating.toUpperCase());
                         // Creating an image tag
                         var heroImage = $("<img>");
                         // Giving the image tag a src attribute for still image
@@ -100,23 +99,20 @@ $(document).ready(function () {
 
     });
 
-    //This on click function will trigger the playPause function
-    $(document).on("click", ".gif", playPause);
-
-    //Function for playing/pausing GIFs
-    function playPause() {
+    //On click Function for playing/pausing 
+    $(document).on('click', '.gif', function () {
         var state = $(this).attr("data-state");
         // If the clicked image's state is still, update its src attribute to what its data-animate value is.
-        // Then, set the image's data-state to animate
-        // Else set src to the data-still value
         if (state === "still") {
             $(this).attr("src", $(this).attr("data-animate"));
+            // Then, set the image's data-state to animate
             $(this).attr("data-state", "animate");
         } else {
+            // Else set src to the data-still value
             $(this).attr("src", $(this).attr("data-still"));
             $(this).attr("data-state", "still");
         }
-    }
+    });
 
 });
 
