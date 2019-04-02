@@ -1,46 +1,63 @@
 
 $(document).ready(function () {
+    //Global variables
+
     // Initial array of super heroes
-    var superHeroes = ["X-Men", "Avengers","Justice League", "Iron Man", "Spiderman", "Superman", "Batman", "Incredible Hulk", "Aquaman"];
-    
+    var superHeroes = ["X-Men", "Avengers", "Justice League", "Iron Man", "Spiderman", "Superman", "Batman", "Incredible Hulk", "Aquaman"];
+
     // Calling the renderButtons function at least once to display the initial list of super heroes
     renderButtons();
 
     // Function for displaying buttons
     function renderButtons() {
+        // Prevent repeat buttons
         $("#buttons-view").empty();
-
+        // Loop through superHeroes array
         for (var i = 0; i < superHeroes.length; i++) {
+            // Assign variable to create <button> tag
             var hero = $("<button>");
-            $(hero).attr('id', 'hero-button');
+            // Add attributes and classes
+            $(hero).attr("id", "hero-button");
             hero.addClass("hero");
-            $(hero).attr('type', 'submit');
+            $(hero).attr("type", "submit");
             hero.attr("data-name", superHeroes[i]);
             hero.text(superHeroes[i]);
+            // Add buttons to HTML
             $("#buttons-view").append(hero);
         }
     }
 
-    // Function to add hero buttons
-    $("#add-superhero").on("click", function (event) {
+    // On click Function to add hero buttons
+    $("#add-superhero").click(function() {
+        // Grabs valus from the text box
+        var txtBox = $("#button-input").val();
         // event.preventDefault() prevents the form from trying to submit itself.
         event.preventDefault();
-        // This line will grab the text from the input box
-        var hero = $("#button-input").val().trim();
-        // The super hero from the textbox is then added to our array
-        superHeroes.push(hero);
-        //Call renderButtons function
-        renderButtons();
-        // Clear the form field
-        $("form").trigger("reset");
-    })
+        // Do nothing if txtBox empty and focus on the input field
+        if (txtBox === "") {
+            $("#button-input").focus();
+            // Else execute code if txtBox has data
+        } else {
+            // This line will grab the text from the input box
+            var addHero = $("#button-input").val().trim();
+            // The super hero from the textbox is then added to our array
+            superHeroes.push(addHero);
+            // Call renderButtons function
+            renderButtons();
+            // Clear the form field
+            $("#button-input").val(" ");
+        }
+        //Prevent submit button from refreshing page.
+        return false;
+    });
 
-    //Function queries GIPHY for super hero button selected
-    $("button").on("click", function (event) {
-        event.preventDefault();
+
+    // On click Function queries GIPHY for super hero button selected
+    // $("button#hero-button").click(function() {
+    $(document).on('click', 'button#hero-button', function(){
         // Storing our giphy API URL
         var heroName = $(this).attr("data-name");
-        var queryUrl = "https://api.giphy.com/v1/gifs/search?q=" + heroName + "&api_key=xpKl0hsLaTcPGpvdzolHfqbGD2PgBpqW&limit=1";
+        var queryUrl = "https://api.giphy.com/v1/gifs/search?q=" + heroName + "&api_key=xpKl0hsLaTcPGpvdzolHfqbGD2PgBpqW&random&limit=10";
         // Perfoming an AJAX GET request to our queryURL
         $.ajax({
             url: queryUrl,
@@ -60,17 +77,47 @@ $(document).ready(function () {
                         var p = $("<p>").text("Rating: " + rating);
                         // Creating an image tag
                         var heroImage = $("<img>");
-                        // Giving the image tag an src attribute of a proprty pulled off the
-                        // result item
-                        heroImage.attr("src", results[i].images.fixed_height.url);
+                        // Giving the image tag a src attribute for still image
+                        heroImage.attr("src", results[i].images.fixed_height_still.url);
+                        // Giving the image tag a gif class
+                        heroImage.attr("class", "gif");
+                        // Giving the image tag a data-still attribute for the still image URL
+                        heroImage.attr("data-still", results[i].images.fixed_height_still.url);
+                        // Giving the image tag a data-animate atribute for animated GIF
+                        heroImage.attr("data-animate", results[i].images.fixed_height.url);
+                        // Giving the image tag an initial data-state tag of still
+                        heroImage.attr("data-state", "still");
                         // Appending the paragraph and heroImage we created to the "gifDiv" div
                         gifDiv.append(p);
                         gifDiv.append(heroImage);
-                        // Prepending the gifDiv to the "#images" div in the HTML
+                        // Prepending the gifDiv to the "#images" div
                         $("#images").prepend(gifDiv);
+                        // Prepending heroImage to the "#images" div
                         $("#images").prepend(heroImage);
                     }
                 }
             });
+
     });
+
+    //This on click function will trigger the playPause function
+    $(document).on("click", ".gif", playPause);
+
+    //Function for playing/pausing GIFs
+    function playPause() {
+        var state = $(this).attr("data-state");
+        // If the clicked image's state is still, update its src attribute to what its data-animate value is.
+        // Then, set the image's data-state to animate
+        // Else set src to the data-still value
+        if (state === "still") {
+            $(this).attr("src", $(this).attr("data-animate"));
+            $(this).attr("data-state", "animate");
+        } else {
+            $(this).attr("src", $(this).attr("data-still"));
+            $(this).attr("data-state", "still");
+        }
+    }
+
 });
+
+

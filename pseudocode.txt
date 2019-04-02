@@ -6,3 +6,5 @@
 5. Populate page with button results
 6. Create form submit button for adding buttons*
 7. Populate page with buttons results from additional buttons
+8. Pause/play functionality for click on GIFs
+9. CSS/bootstrap styling
