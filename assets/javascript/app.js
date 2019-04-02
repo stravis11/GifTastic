@@ -44,7 +44,7 @@ $(document).ready(function () {
             // Call renderButtons function
             renderButtons();
             // Clear the form field
-            $("#button-input").val(" ");
+            $("#button-input").val("");
         }
         //Prevent submit button from refreshing page.
         return false;
@@ -73,7 +73,7 @@ $(document).ready(function () {
                         // Storing the result item's rating
                         var rating = results[i].rating;
                         // Creating a paragraph tag with the result item's rating
-                        var p = $("<p>").text("Rating: " + rating.toUpperCase());
+                        var p = $("<p class='flow-text textInfo'>").text("Rating: " + rating.toUpperCase());
                         // Creating an image tag
                         var heroImage = $("<img>");
                         // Giving the image tag a src attribute for still image

@@ -19,6 +19,15 @@ nav {
  #images {
      padding: 10px;
  }
+
+ .hero{
+    font-family: "Adventure", sans-serif;
+ }
+
+ .textInfo{
+    font-family: "Adventure", sans-serif;
+ }
+
  /* .row {
     display: flex;
     flex-wrap: wrap;
