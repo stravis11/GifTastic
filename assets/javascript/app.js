@@ -70,16 +70,19 @@ $(document).ready(function () {
                     // Only taking action if the photo has an appropriate rating
                     if (results[i].rating !== "r") {
                         var gifDiv = $("<div>");
+                        var cardDiv = $('<div class="card">');
+                        var cardImageDiv = $('<div class="card-image">');
                         // Storing the result item's rating
                         var rating = results[i].rating;
                         // Creating a paragraph tag with the result item's rating
                         var p = $("<p class='flow-text textInfo'>").text("Rating: " + rating.toUpperCase());
+                        // var span = $('<span class="card-title">').text("Rating: "+rating.toUpperCase());
                         // Creating an image tag
                         var heroImage = $("<img>");
                         // Giving the image tag a src attribute for still image
                         heroImage.attr("src", results[i].images.fixed_height_still.url);
                         // Giving the image tag a gif class
-                        heroImage.attr("class", "gif responsive-img hoverable");
+                        heroImage.attr("class", "card-image gif responsive-img hoverable");
                         // Giving the image tag a data-still attribute for the still image URL
                         heroImage.attr("data-still", results[i].images.fixed_height_still.url);
                         // Giving the image tag a data-animate atribute for animated GIF
@@ -88,11 +91,14 @@ $(document).ready(function () {
                         heroImage.attr("data-state", "still");
                         // Appending the paragraph and heroImage we created to the "gifDiv" div
                         gifDiv.append(p);
-                        gifDiv.append(heroImage);
-                        // Prepending the gifDiv to the "#images" div
-                        $("#images").prepend(gifDiv);
+                        gifDiv.append(heroImage);                    
                         // Prepending heroImage to the "#images" div
                         $("#images").prepend(heroImage);
+                         // Prepending the gifDiv to the "#images" div
+                        $("#images").prepend(gifDiv);
+                        $("#images").prepend(cardDiv);
+                        $("#images").prepend(cardImageDiv);
+
                     }
                 }
             });
