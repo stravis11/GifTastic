@@ -8,7 +8,7 @@
 - [x] Create form submit button for adding buttons
 - [x] Populate page with buttons results from additional buttons DONE
 - [x] Pause/play functionality for GIFs
-- [ ] CSS/bootstrap styling
+- [x] CSS/bootstrap styling
 - [x] Add to portfolio DONE
 - [x] Submit links on bootcampspot DONE
 

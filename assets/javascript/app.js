@@ -56,7 +56,7 @@ $(document).ready(function () {
     $(document).on('click', '#hero-button', function () {
         // Storing our giphy API URL
         var heroName = $(this).attr("data-name");
-        var queryUrl = "https://api.giphy.com/v1/gifs/search?q=" + heroName + "&api_key=xpKl0hsLaTcPGpvdzolHfqbGD2PgBpqW&random&limit=10";
+        var queryUrl = "https://api.giphy.com/v1/gifs/search?q=" + heroName + "&api_key=xpKl0hsLaTcPGpvdzolHfqbGD2PgBpqW&limit=10";
         // Perfoming an AJAX GET request to our queryURL
         $.ajax({
             url: queryUrl,
@@ -70,8 +70,6 @@ $(document).ready(function () {
                     // Only taking action if the photo has an appropriate rating
                     if (results[i].rating !== "r") {
                         var gifDiv = $("<div>");
-                        var cardDiv = $('<div class="card">');
-                        var cardImageDiv = $('<div class="card-image">');
                         // Storing the result item's rating
                         var rating = results[i].rating;
                         // Creating a paragraph tag with the result item's rating
@@ -96,9 +94,6 @@ $(document).ready(function () {
                         $("#images").prepend(heroImage);
                          // Prepending the gifDiv to the "#images" div
                         $("#images").prepend(gifDiv);
-                        $("#images").prepend(cardDiv);
-                        $("#images").prepend(cardImageDiv);
-
                     }
                 }
             });

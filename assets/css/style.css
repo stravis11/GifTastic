@@ -1,8 +1,8 @@
 
 
-   @font-face {
-	font-family: 'Adventure';
-	src: url(../fonts/Adventure.otf);
+@font-face {
+font-family: 'Adventure';
+src: url(../fonts/Adventure.otf);
 } 
 
 @font-face {
@@ -19,12 +19,7 @@
    display: flex;
    flex-wrap: wrap;
 }
-/* body {
-   display: flex;
-   min-height: 100vh;
-   flex-direction: column;
-   flex-wrap: wrap;
- } */
+
 nav {
     font-family: "Adventure", sans-serif;
     font-size: 50px!important;
@@ -48,15 +43,12 @@ nav {
    text-shadow: 1px 1px 1px black;
 }
 
-
-   
-
- 
-   
- 
-
  .hero{
     font-family: "Adventure", sans-serif;
+ }
+
+ #images {
+    padding-top: 5px;
  }
 
  .textInfo{

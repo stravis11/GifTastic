@@ -1,6 +1,6 @@
 # GifTastic
 
-A Javascript/HTML5 web application that uses the GIPHY API to retrieve the users' choice of GIFs. GIFs can be selected to play/stop the animated GIF.
+A Javascript/HTML5 web application that uses the GIPHY API to retrieve the user's choice of GIFs. GIFs can be selected to play/stop the animated GIF.
 
 Live Link: https://stravis11.github.io/GifTastic/
 
