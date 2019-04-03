@@ -6,10 +6,10 @@ Live Link: https://stravis11.github.io/GifTastic/
 
 My Portfolio: https://stravis11.github.io/Bootstrap-Portfolio/
 
-#Technologies Used
-*HTML5
-*Javascript
-*jQuery
-*Materialize/CSS
-*GIPHY API
-*AJAX
+##Technologies Used
+* HTML5
+* Javascript
+* jQuery
+* Materialize/CSS
+* GIPHY API
+* AJAX
