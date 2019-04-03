@@ -2,7 +2,7 @@
 $(document).ready(function () {
 
     // Array of super heroes
-    var superHeroes = ["X-Men", "Avengers", "Justice League", "Iron Man", "Spiderman", "Superman", "Batman", "Incredible Hulk", "Aquaman"];
+    var superHeroes = ["X-Men", "Avengers", "Justice League", "Iron Man", "Spiderman", "Superman"];
 
     // Calling the renderButtons function at least once to display the initial list of super heroes
     renderButtons();
@@ -14,10 +14,10 @@ $(document).ready(function () {
         // Loop through superHeroes array
         for (var i = 0; i < superHeroes.length; i++) {
             // Assign variable to create <button> tag
-            var hero = $("<button>");
+            var hero = $("<a>");
             // Add attributes and classes
             $(hero).attr("id", "hero-button");
-            hero.addClass("hero collection-item waves-effect green btn-medium");
+            hero.addClass("hero collection-item waves-effect yellow btn-medium hoverable");
             $(hero).attr("type", "submit");
             hero.attr("data-name", superHeroes[i]);
             hero.text(superHeroes[i]);
@@ -53,7 +53,7 @@ $(document).ready(function () {
 
     // On click Function queries GIPHY for super hero button selected
     // $("button#hero-button").click(function() {
-    $(document).on('click', 'button#hero-button', function () {
+    $(document).on('click', '#hero-button', function () {
         // Storing our giphy API URL
         var heroName = $(this).attr("data-name");
         var queryUrl = "https://api.giphy.com/v1/gifs/search?q=" + heroName + "&api_key=xpKl0hsLaTcPGpvdzolHfqbGD2PgBpqW&random&limit=10";
@@ -79,7 +79,7 @@ $(document).ready(function () {
                         // Giving the image tag a src attribute for still image
                         heroImage.attr("src", results[i].images.fixed_height_still.url);
                         // Giving the image tag a gif class
-                        heroImage.attr("class", "gif responsive-img");
+                        heroImage.attr("class", "gif responsive-img hoverable");
                         // Giving the image tag a data-still attribute for the still image URL
                         heroImage.attr("data-still", results[i].images.fixed_height_still.url);
                         // Giving the image tag a data-animate atribute for animated GIF

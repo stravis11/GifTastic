@@ -8,44 +8,47 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body>
-   
-        <nav>
-            <div class="nav-wrapper blue darken-3">
-                <a href="#" class="brand-logo">Super Hero GifTastic</a>
-            </div>
-        </nav>
-        <!-- Buttons will go here -->
-        <div class="row flex">
-            <div class="col s12 m4 l3 red darken-3">
-                <h5 style="color: white" >Super Heroes</h5>
-                <!-- Buttons will go here  -->
-              
+    <!-- Header/Nav bar -->
+    <nav>
+        <div class="nav-wrapper blue darken-3">
+            <a href="#" class="center brand-logo">Super Hero GifTastic</a>
+        </div>
+    </nav>
+    <!-- Buttons will go here -->
+    <div class="row flex">
+        <div class="col s12 m4 l3 red darken-3">
+            <h6 id="select" style="color: white">Select A Super Hero</h5>
                 <div id="buttons-view" class="blue darken-3 collection"></div>
-            </div>
-            
+        </div>
+        <!-- Add a hero section -->
+        <div class="col s12 m8 l9 blue lighten-4">
+            <div class="card-panel hoverable">
+                <form id="buttons-form">
+                    <label for="button-input">Add A Super Hero Here</label>
+                    <input type="text" id="button-input">
+                    <!-- Button triggers new super hero to be added -->
+                    <button id="add-superhero" class="btn hoverable green darken-1" type="submit">
+                        Add a Hero<i class="material-icons right">send</i>
+                    </button>
+                </form>
 
-            <div class="col s12 m8 l9 grey lighten-4">
-                <div class="card-panel">
-                    <form id="buttons-form">
-                        <label for="button-input">Add A Super Hero Here</label>
-                        <input type="text" id="button-input">
-                        <!-- Button triggers new super hero to be added -->
-                        <button id="add-superhero" class="btn waves-effect waves-light grey darken-1" type="submit">
-                            Add a Hero<i class="material-icons right">send</i>
-                        </button>
-                    </form>
-                    <div class="row">
-                        
-                        <!-- GIFs go here -->
-                        <div id="images" class="column"></div>
-                   
-                    </div>  
-                    <script src="assets/javascript/app.js"></script>
-                
+                <div class="row">
+
+                    <!-- GIFs go here -->
+
+                    <div id="images" class="s12 m8 l9"></div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="assets/javascript/app.js"></script>
+
+</body>
 
 </html>

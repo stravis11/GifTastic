@@ -8,5 +8,7 @@
 7. Populate page with buttons results from additional buttons DONE
 8. Pause/play functionality for click on GIFs DONE
 9. CSS/bootstrap styling
+10. Add to portfolio
+11. Submit links on bootcampspot
 
 

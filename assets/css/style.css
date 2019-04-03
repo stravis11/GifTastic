@@ -5,19 +5,50 @@
 	src: url(../fonts/Adventure.otf);
 } 
 
+@font-face {
+	font-family: 'BADABOOM';
+	src: url(../fonts/BADABOOM.TTF);
+} 
+
+@font-face {
+	font-family: 'Heroes Legend';
+	src: url(../fonts/Heroes\ Legend.ttf);
+} 
+.flex {
+   min-height: 100vh;
+   display: flex;
+   flex-wrap: wrap;
+}
+/* body {
+   display: flex;
+   min-height: 100vh;
+   flex-direction: column;
+   flex-wrap: wrap;
+ } */
 nav {
     font-family: "Adventure", sans-serif;
-    font-size: 100;
-}
+    font-size: 50px!important;
+    text-shadow: 4px 4px 4px black!important;
+   }
 
-  .flex {
-    min-height: 100vh;
-    display: flex;
-    flex-wrap: wrap;
- }
+#select {
+   font-family: "Heroes Legend", sans-serif;
+   padding-top: 10px;
+   text-shadow: 4px 4px 4px black!important;
+}
  
+#buttons-view {
+   font-size: 25px;
+   text-align: center;
+   text-shadow: 1px 1px 1px black;
+   box-shadow: 4px 4px 4px black;
+}
+#add-superhero {
+   font-family: "Adventure", sans-serif;
+   text-shadow: 1px 1px 1px black;
+}
  #images {
-     padding: 10px;
+     padding: 10px;   
  }
 
  .hero{
@@ -28,23 +59,14 @@ nav {
     font-family: "Adventure", sans-serif;
  }
 
- /* .row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 25%;
-    padding: 4px 4px; 
-} */
+ /*
+    These rules take effect when the browser's width
+    is either 910px or less.
+  */
+  @media screen and (max-width: 910px) {
+   nav   { 
+       font-size: 25px;
+   }
 
-/* .column {
-    flex: 25%;
-    max-width: 25%;
-    padding: 0 4px;
-  }
-
-  .column img {
-    margin-top: 8px;
-    vertical-align: middle;
-  } */
     
  
