@@ -1,14 +1,15 @@
 
-1. Initial setup DONE
-2. Layout design DONE
-3. Pick category: Super Heroes DONE
-4. Create initial buttons DONE
-5. Populate page with button results DONE
-6. Create form submit button for adding buttons DONE
-7. Populate page with buttons results from additional buttons DONE
-8. Pause/play functionality for click on GIFs DONE
-9. CSS/bootstrap styling
-10. Add to portfolio
-11. Submit links on bootcampspot
+#TO DO
+- [x] Initial setup
+- [x] Layout design
+- [x] Pick category: Super Heroes
+- [x] Create initial buttons
+- [x] Populate page with button results
+- [x] Create form submit button for adding buttons
+- [x] Populate page with buttons results from additional buttons DONE
+- [x] Pause/play functionality for GIFs
+- [ ] CSS/bootstrap styling
+- [x] Add to portfolio DONE
+- [x] Submit links on bootcampspot DONE
 
 
