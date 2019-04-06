@@ -89,10 +89,10 @@ $(document).ready(function () {
                         heroImage.attr("data-state", "still");
                         // Appending the paragraph and heroImage we created to the "gifDiv" div
                         gifDiv.append(p);
-                        gifDiv.append(heroImage);                    
+                        gifDiv.append(heroImage);
                         // Prepending heroImage to the "#images" div
                         $("#images").prepend(heroImage);
-                         // Prepending the gifDiv to the "#images" div
+                        // Prepending the gifDiv to the "#images" div
                         $("#images").prepend(gifDiv);
                     }
                 }
@@ -100,7 +100,7 @@ $(document).ready(function () {
 
     });
 
-    //On click Function for playing/pausing 
+    // On click Function for playing/pausing 
     $(document).on('click', '.gif', function () {
         var state = $(this).attr("data-state");
         // If the clicked image's state is still, update its src attribute to what its data-animate value is.
@@ -115,6 +115,13 @@ $(document).ready(function () {
         }
     });
 
+    // Function that fixes navbar styling for mobile
+    $(window).on('load, resize', function mobileViewUpdate() {
+        var viewportWidth = $(window).width();
+        if (viewportWidth < 600) {
+            $(".center").removeClass("center brand-logo").addClass("left brand-logo");
+        }
+    });
 });
 
 

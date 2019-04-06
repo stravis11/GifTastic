@@ -44,7 +44,14 @@
         </div>
     </div>
     <script src="assets/javascript/app.js"></script>
-
+    <script>
+    $(window).on('load, resize', function mobileViewUpdate() {
+    var viewportWidth = $(window).width();
+    if (viewportWidth < 600) {
+        $(".center").removeClass("center brand-logo").addClass("left brand-logo");
+    }
+});
+</script>
 </body>
 
 </html>
